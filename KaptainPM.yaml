@@ -1,0 +1,19 @@
+apiVersion: kaptain.org/1.13
+kind: basic-quality-checks
+
+spec:
+  global:
+    projectName:
+      stripRepositoryNamePrefix: test
+  main:
+    quality:
+      branches:
+        requireConventional: false
+        blockSlashes: true
+        blockDoubleHyphens: true
+      commits:
+        requireConventional: true
+        blockDuplicateMessages: true
+    hooks:
+      preBuild: test-hooks/pre-build.bash
+      postBuild: test-hooks/post-build.bash
