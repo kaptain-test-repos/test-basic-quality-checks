@@ -4,7 +4,7 @@ set -euo pipefail
 # Validates environment at the end of the build pipeline
 
 errors=0
-assert_set() { if [[ -z "${!1:-}" ]]; then echo "FAIL: $1 should be set" >&2; ((errors++)); fi; }
+assert_set() { if [[ -z "${!1:-}" ]]; then echo "FAIL: $1 should be set" >&2; errors=$((errors + 1)); fi; }
 
 # Basic context should still be available
 assert_set REPOSITORY_NAME
