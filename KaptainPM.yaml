@@ -1,4 +1,4 @@
-apiVersion: kaptain.org/1.13
+apiVersion: kaptain.org/1.39
 kind: basic-quality-checks
 
 spec:
