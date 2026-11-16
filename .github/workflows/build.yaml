@@ -1,6 +1,10 @@
 name: CI
 
 on:
+  # This workflow is only meant for pull requests. The push trigger is kept
+  # on purpose: every merge starts a build of main, and that build must fail
+  # in "Basic Quality Checks" with "Quality checks should not run on release
+  # branches." It keeps the error for this misconfiguration under test.
   push:
     branches: [main]
   pull_request:
